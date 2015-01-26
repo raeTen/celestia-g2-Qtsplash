@@ -1,6 +1,6 @@
-21cabf45160c28abf16f123d697d02ee  qtappwin.cpp
-22f8456ea7cb0e4013cd781a71b80864  qtmain.cpp
-7065f079c4b1a7bf4a86be3dcd8fe757  splash-ng.png
-4084be7a7893620026d24d191bba4dce  splash-ng-demo.png
-c22591ebb5e55f1ea7cbe10fcda50cb8  qtmain.cpp.patch
 d588d9b8bc061291b91ad919f3055acf  qtappwin.cpp.patch
+e807aae643694ad9133ac9470a879a57  qtmain.cpp.patch
+4084be7a7893620026d24d191bba4dce  splash-ng-demo.png
+5ec57d6d39ca41b711c2dffbd6b57b97  splash-ng.png
+4f10743a20b4a7684faeeff660af9701  qtmain.cpp
+e807aae643694ad9133ac9470a879a57  qtmain.cpp.patch

@@ -15,6 +15,8 @@
  fancy enough, just use it.
  There are two or three pixels which probably disturb by a bright background,
  but hey, it's a splashscreen...
- So give it a try by using qtmain.cpp and qtappwin.cpp in src/qt and splash-ng.png
+ So give it a try by using qtmain.cpp and qtappwin.cpp in src/celestia/qt and splash-ng.png
  in /celestia
- BTW, you don't need to do "make install" for testing purposes (Linux).
+ Another way would be having an own splash screen class like cel_splashscreen.cpp, 
+ Due to less code, I'd prefer this way.
+ Don't hesitate to "improve" the pixels ...

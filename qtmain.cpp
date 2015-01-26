@@ -55,27 +55,20 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("Celestia"); //democratic descision suggesting "Celestia-ng"
 
     ParseCommandLine();
-	/*
-    QPixmap pixmap("splash.png");
-    QSplashScreen splash(pixmap);
-    splash.setMask(pixmap.mask());
-
+    /*
     Disabled for now until issues with pixmap alpha channel
     are resolved
     splash.show();*/
-	QPixmap pixmap("splash-ng.png");
-	/*showMessage allows only one message, so paint version string before by Qpainter*/
-	QPainter* painter=new QPainter(&pixmap);
-	painter->setPen(QColor(220, 155, 15));
-	painter->drawText(490,424,cel_qt_version);
-	painter->end();
-	QSplashScreen splash(pixmap);
-	/*8bit alpha works with (KDE plasma) desktop effects=on, odd Qt "bug"
-	 normally you don't want your desktop effects "on" while running a fps-application
-	 like this.
-	 So, I modified/created splash-ng.png (downwards compatible) for 1bit alphachanneling, hope it's fancy enough*/
-	splash.setMask(pixmap.mask());
-	splash.show();
+    QPixmap pixmap("splash-ng.png");
+    /*showMessage allows only one message, so paint version string before by Qpainter*/
+    QPainter* painter=new QPainter(&pixmap);
+    painter->setPen(QColor(220, 155, 15));
+    painter->drawText(490,424,cel_qt_version);
+    painter->end();
+    QSplashScreen splash(pixmap);
+
+    splash.setMask(pixmap.mask());
+    splash.show();
 
     // Gettext integration
     setlocale(LC_ALL, "");
@@ -126,7 +119,7 @@ bool ParseCommandLine()
     while (i < args.size())
     {
         bool isLastArg = (i == args.size() - 1);
-#if 0
+#if 0	
         if (strcmp(argv[i], "--verbose") == 0)
         {
             SetDebugVerbosity(1);

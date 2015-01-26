@@ -17,46 +17,44 @@
 <     QCoreApplication::setApplicationName("Celestia");
 ---
 >     QCoreApplication::setApplicationName("Celestia"); //democratic descision suggesting "Celestia-ng"
-56c58
+56,57c58,67
 < 
+<     QPixmap pixmap("splash.png");
 ---
-> 	/*
-61,63c63,78
+>     /*
+>     Disabled for now until issues with pixmap alpha channel
+>     are resolved
+>     splash.show();*/
+>     QPixmap pixmap("splash-ng.png");
+>     /*showMessage allows only one message, so paint version string before by Qpainter*/
+>     QPainter* painter=new QPainter(&pixmap);
+>     painter->setPen(QColor(220, 155, 15));
+>     painter->drawText(490,424,cel_qt_version);
+>     painter->end();
+59d68
+<     splash.setMask(pixmap.mask());
+61,63c70,71
 <     // Disabled for now until issues with pixmap alpha channel
 <     // are resolved
 <     //splash.show();
 ---
->     Disabled for now until issues with pixmap alpha channel
->     are resolved
->     splash.show();*/
-> 	QPixmap pixmap("splash-ng.png");
-> 	/*showMessage allows only one message, so paint version string before by Qpainter*/
-> 	QPainter* painter=new QPainter(&pixmap);
-> 	painter->setPen(QColor(220, 155, 15));
-> 	painter->drawText(490,424,cel_qt_version);
-> 	painter->end();
-> 	QSplashScreen splash(pixmap);
-> 	/*8bit alpha works with (KDE plasma) desktop effects=on, odd Qt "bug"
-> 	 normally you don't want your desktop effects "on" while running a fps-application
-> 	 like this.
-> 	 So, I modified/created splash-ng.png (downwards compatible) for 1bit alphachanneling, hope it's fancy enough*/
-> 	splash.setMask(pixmap.mask());
-> 	splash.show();
-66,67c81,82
+>     splash.setMask(pixmap.mask());
+>     splash.show();
+66,67c74,75
 <     setlocale(LC_ALL, ""); 
 <     setlocale(LC_NUMERIC, "C"); 
 ---
 >     setlocale(LC_ALL, "");
 >     setlocale(LC_NUMERIC, "C");
-69c84
+69c77
 <     bind_textdomain_codeset("celestia", "UTF-8"); 
 ---
 >     bind_textdomain_codeset("celestia", "UTF-8");
-71c86
+71c79
 <     bind_textdomain_codeset("celestia_constellations", "UTF-8"); 
 ---
 >     bind_textdomain_codeset("celestia_constellations", "UTF-8");
-114c129
+114c122
 < #if 0
 ---
 > #if 0	
