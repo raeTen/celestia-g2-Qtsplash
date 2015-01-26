@@ -1,0 +1,62 @@
+22a23
+> #include <QPainter>
+25c26
+< #include <qtextcodec.h> 
+---
+> #include <qtextcodec.h>
+30c31,32
+< static const char *description = "Celestia";
+---
+> //static const char *description = "Celestia"; //"compiler says unsed"
+> static const char *cel_qt_version = "Celestia-ng 1.7.0 alpha";//TODO
+47c49
+< {  
+---
+> {
+53c55
+<     QCoreApplication::setApplicationName("Celestia");
+---
+>     QCoreApplication::setApplicationName("Celestia"); //democratic descision suggesting "Celestia-ng"
+56c58
+< 
+---
+> 	/*
+61,63c63,78
+<     // Disabled for now until issues with pixmap alpha channel
+<     // are resolved
+<     //splash.show();
+---
+>     Disabled for now until issues with pixmap alpha channel
+>     are resolved
+>     splash.show();*/
+> 	QPixmap pixmap("splash-ng.png");
+> 	/*showMessage allows only one message, so paint version string before by Qpainter*/
+> 	QPainter* painter=new QPainter(&pixmap);
+> 	painter->setPen(QColor(220, 155, 15));
+> 	painter->drawText(490,424,cel_qt_version);
+> 	painter->end();
+> 	QSplashScreen splash(pixmap);
+> 	/*8bit alpha works with (KDE plasma) desktop effects=on, odd Qt "bug"
+> 	 normally you don't want your desktop effects "on" while running a fps-application
+> 	 like this.
+> 	 So, I modified/created splash-ng.png (downwards compatible) for 1bit alphachanneling, hope it's fancy enough*/
+> 	splash.setMask(pixmap.mask());
+> 	splash.show();
+66,67c81,82
+<     setlocale(LC_ALL, ""); 
+<     setlocale(LC_NUMERIC, "C"); 
+---
+>     setlocale(LC_ALL, "");
+>     setlocale(LC_NUMERIC, "C");
+69c84
+<     bind_textdomain_codeset("celestia", "UTF-8"); 
+---
+>     bind_textdomain_codeset("celestia", "UTF-8");
+71c86
+<     bind_textdomain_codeset("celestia_constellations", "UTF-8"); 
+---
+>     bind_textdomain_codeset("celestia_constellations", "UTF-8");
+114c129
+< #if 0
+---
+> #if 0	

@@ -1,0 +1,4 @@
+1398c1398
+<     emit progressUpdate(s, Qt::AlignLeft, Qt::white);
+---
+>     emit progressUpdate(s, Qt::AlignLeft|Qt::AlignBottom, QColor(220, 155, 15));
