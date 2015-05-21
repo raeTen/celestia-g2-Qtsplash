@@ -20,3 +20,4 @@
  Another way would be having an own splash screen class like cel_splashscreen.cpp, 
  Due to less code, I'd prefer this way.
  Don't hesitate to "improve" the pixels, I added the gimp xcf ...
+ 
